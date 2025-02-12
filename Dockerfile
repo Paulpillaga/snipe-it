@@ -130,7 +130,7 @@ USER root
 
 ############### DATA VOLUME #################
 
-VOLUME ["/var/lib/snipeit"]
+#VOLUME ["/var/lib/snipeit"]
 
 ##### START SERVER
 
@@ -138,7 +138,9 @@ COPY docker/startup.sh docker/supervisord.conf /
 COPY docker/supervisor-exit-event-listener /usr/bin/supervisor-exit-event-listener
 RUN chmod +x /startup.sh /usr/bin/supervisor-exit-event-listener
 
-CMD ["/startup.sh"]
+#CMD ["/startup.sh"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
+
 
 EXPOSE 80
 EXPOSE 443
