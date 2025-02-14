@@ -140,8 +140,10 @@ RUN chmod +x /startup.sh /usr/bin/supervisor-exit-event-listener
 
 #CMD ["/startup.sh"]
 #CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=${PORT}"]
+#CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=${PORT}"]
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=$(echo ${PORT})"]
 
 
 EXPOSE 80
 EXPOSE 443
+
