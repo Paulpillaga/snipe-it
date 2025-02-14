@@ -142,7 +142,11 @@ RUN chmod +x /startup.sh /usr/bin/supervisor-exit-event-listener
 #CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=8000"]
 #CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=${PORT}"]
 #CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=$(echo ${PORT})"]
-CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=$(echo $PORT | awk '{print $1+0}')"]
+#CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=$(echo $PORT | awk '{print $1+0}')"]
+
+
+
+CMD ["php", "artisan", "serve", "--host=0.0.0.0", "--port=${PORT}"]
 
 
 EXPOSE 80
