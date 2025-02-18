@@ -1,1 +1,2 @@
-web: php artisan serve --host=0.0.0.0 --port=$PORT
+web: service php8.0-fpm start && nginx -g 'daemon off;'
+
