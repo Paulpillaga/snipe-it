@@ -117,9 +117,10 @@
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover --ansi",
       "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
+
+     ],
     "post-install-cmd": [
     "sed -i 's/return $port + $this->portOffset;/return (int) $port + $this->portOffset;/' vendor/laravel/framework/src/Illuminate/Foundation/Console/ServeCommand.php"
-    ]
 
     ],
     "post-create-project-cmd": [
