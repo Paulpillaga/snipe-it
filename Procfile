@@ -1,2 +1,2 @@
-web: service php8.0-fpm start && nginx -g 'daemon off;'
+web: service php8.2-fpm start && nginx -g 'daemon off;'
 
