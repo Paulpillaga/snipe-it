@@ -5,7 +5,8 @@ FROM php:8.2-fpm
 LABEL maintainer="Brady Wetherington <bwetherington@grokability.com>"
 
 # Instalar dependencias necesarias
-RUN apt-get update && apt-get install -y \
+# Actualizamos los repositorios y aseguramos una instalación limpia
+RUN apt-get update && apt-get upgrade -y && apt-get install -y --no-install-recommends \
     nginx \
     zip \
     unzip \
@@ -18,7 +19,9 @@ RUN apt-get update && apt-get install -y \
     mariadb-client \
     supervisor \
     && docker-php-ext-configure gd --with-freetype --with-jpeg \
-    && docker-php-ext-install gd pdo pdo_mysql bcmath zip mbstring xml ldap opcache
+    && docker-php-ext-install gd pdo pdo_mysql bcmath zip mbstring xml ldap opcache \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
 
 # Copiar archivos del proyecto al contenedor
 WORKDIR /var/www/html
